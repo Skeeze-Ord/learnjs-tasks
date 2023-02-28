@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>constructor-new</title>
+  </head>
+  <script>
+    // Task 1
+    let obj = {};
+    function A() {
+      return obj;
+    }
+    function B() {
+      return obj;
+    }
+
+    // Task 2
+    function Calculator() {
+      this.first = 0;
+      this.second = 0;
+
+      this.read = function () {
+        this.first = +prompt("First number");
+        this.second = +prompt("Second number");
+      };
+
+      this.sum = function () {
+        return this.first + this.second;
+      };
+
+      this.mul = function () {
+        return this.first * this.second;
+      };
+    }
+
+    // Task 3
+    function Accumulator(value) {
+      this.value = +value;
+      this.newValue = 0;
+
+      this.read = function () {
+        this.newValue = +prompt("New value");
+        this.value += this.newValue;
+        return this.value;
+      };
+    }
+
+    let accumulator = new Accumulator(1); // начальное значение 1
+
+    accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
+    accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
+
+    alert(accumulator.value); // выведет сумму этих значений
+  </script>
+  <body></body>
+</html>

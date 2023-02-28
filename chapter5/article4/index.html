@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array</title>
+  </head>
+  <script>
+    // Task 1
+    let fruits = ["Яблоки", "Груша", "Апельсин"];
+
+    // добавляем новое значение в "копию"
+    let shoppingCart = fruits;
+    shoppingCart.push("Банан");
+
+    // что в fruits?
+    // alert(fruits.length); // 4
+
+    // Task 2
+    let styles = ["Джаз", "Блюз"];
+    styles.push("Рок-н-ролл");
+    styles[Math.floor(styles.length - 1 / 2)] = "Классика";
+    let first = styles.shift();
+    console.log(first);
+    styles.unshift("Рэп", "Рэгги");
+
+    // Task 3
+    let arr = ["a", "b"];
+
+    arr.push(function () {
+      alert(this);
+    });
+
+    // arr[2](); // a, b, function() {alert(this);}
+    // Так происходит т.к этот метод добавляется в массив и потом просто вызывается, а из-за this вызывается все
+
+    // Task 4
+    const sumInput = () => {
+      let inputs = [];
+      let total = 0;
+
+      while (true) {
+        let inp = +prompt("Введите число");
+        if (Number(inp)) {
+          inputs.push(inp);
+        } else break;
+      }
+
+      inputs.forEach((element) => {
+        total += element;
+      });
+
+      return total;
+    };
+
+    // Task 5
+    const getMaxSubSum = (str) => {
+      let maxSum = 0;
+      let partialSum = 0;
+
+      for (let item of str) {
+        partialSum += item;
+        maxSum = Math.max(maxSum, partialSum);
+        if (partialSum < 0) partialSum = 0;
+      }
+      return maxSum;
+    };
+
+    alert(getMaxSubSum([-1, 2, 3, -9, 11]));
+  </script>
+  <body></body>
+</html>

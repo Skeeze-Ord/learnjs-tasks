@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while-for</title>
+  </head>
+  <script>
+    // Task 1
+    let i = 3;
+
+    while (i) {
+      alert(i--); // 1
+    }
+
+    // Task 2
+    let i = 0;
+    while (++i < 5) alert(i); // 1 2 3 4
+    while (i++ < 5) alert(i); // 1 2 3 4 5
+
+    // Task 3
+    for (let i = 0; i < 5; i++) alert(i); // 0 1 2 3 4
+    for (let i = 0; i < 5; ++i) alert(i); // 0 1 2 3 4
+
+    // Task 4
+    for (let i = 2; i < 11; i++) alert(i);
+
+    // Task 5
+    let i = 0;
+    while (i < 3) {
+      alert(`number ${i}!`);
+      i++;
+    }
+
+    // Task 6
+    while (true) {
+      let num = prompt("Number:");
+
+      if (num > 100 || num === null) {
+        break;
+      }
+    }
+
+    // Task 7
+    let n = prompt("Digit: ");
+    for (let i = 1; i < n + 1; i++) {
+      let count = 0;
+      for (let j = 1; j < i; j++) {
+        if (i % j === 0) {
+          count++;
+        }
+      }
+      if (count === 2) alert(Math.sqrt(i));
+    }
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date</title>
+  </head>
+  <script>
+    // Task 1
+    let date = new Date(2012, 1, 20, 3, 12);
+
+    // Task 2
+    const getWeekDay = (date) => {
+      let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+
+      return days[date.getWeekDay()];
+    };
+
+    // Task 3
+    const getLocalDay = (date) => {
+      let day = date.getDay();
+
+      return day === 0 ? 7 : 0;
+    };
+
+    // Task 4
+    const getDateAgo = (date, days) => {
+      date.setDate(date.getDate() - days);
+      return date.getDate();
+    };
+
+    // Task 5
+    const getLastDayOfMonth = (year, month) => {
+      let date = new Date(year, month + 1, 0);
+      return date.getDate();
+    };
+
+    // Task 6
+    const getSecondsToday = () => {
+      let now = new Date();
+
+      let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      let diff = now - today;
+      return Math.round(diff / 1000);
+    };
+
+    // Task 7
+    const getSecondsToTomorrow = () => {
+      let now = new Date();
+
+      let tomorrow = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1
+      );
+
+      let diff = tomorrow - now;
+      return Math.round(diff / 1000);
+    };
+
+    // Task 8
+    const formatDate = (date) => {
+      let diff = new Date() - date;
+
+      if (diff < 1000) {
+        return "now";
+      }
+
+      let sec = Math.floor(diff / 1000);
+
+      if (sec < 60) {
+        return sec + " second ago";
+      }
+
+      let min = Math.floor(diff / 60000);
+      if (min < 60) {
+        return min + " minutes ago";
+      }
+
+      let d = date;
+      d = [
+        "0" + d.getDate(),
+        "0" + (d.getMonth() + 1),
+        "" + d.getFullYear(),
+        "0" + d.getHours(),
+        "0" + d.getMinutes(),
+      ].map((component) => component.slice(-2));
+
+      return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    };
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object-methods</title>
+  </head>
+  <script>
+    // Task 1
+    function makeUser() {
+      return {
+        name: "John",
+        ref: this,
+      };
+    }
+
+    let user = makeUser();
+
+    alert(user.ref.name); // Каким будет результат?
+    // undefined... бессмысленное употребление ref
+
+    // Task 2
+    let calculator = {
+      first: 0,
+      second: 0,
+
+      read() {
+        this.first = +prompt("Первое число");
+        this.second = +prompt("Второе число");
+      },
+
+      sum() {
+        return this.first + this.second;
+      },
+
+      mul() {
+        return this.first * this.second;
+      },
+    };
+
+    // Task 3
+    let ladder = {
+      step: 0,
+      up() {
+        this.step++;
+        return this;
+      },
+      down() {
+        this.step--;
+        return this;
+      },
+      showStep() {
+        alert(this.step);
+        return this;
+      },
+    };
+    ladder.up().up().down().showStep().down().showStep();
+  </script>
+  <body></body>
+</html>

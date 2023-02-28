@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // Task 1
+    const ucFirst = (str) => {
+      let upper = str.charAt(0).toUpperCase();
+      return upper + str.slice(1);
+    };
+
+    // Task 2
+    const checkSpam = (str) => {
+      const strToArray = str.toLowerCase().split(" ");
+      if (
+        str.includes("viagra") ||
+        strToArray.includes("viagra") ||
+        str.includes("xxx") ||
+        strToArray.includes("xxx")
+      )
+        return true;
+      else return false;
+    };
+
+    // Task 3
+    const truncate = (str, maxLength) => {
+      if (str.length > maxLength) {
+        str = str.slice(0, maxLength - 1);
+        return (str += "...");
+      } else return str;
+    };
+
+    // Task 4
+    const extractCurrencyValue = (str) => {
+      let totalStr = "";
+      for (let i = 0; i < str.length; i++) {
+        if (Number.isInteger(Number(str[i]))) {
+          totalStr += str[i];
+        }
+      }
+      return totalStr.length > 0 ? totalStr : "В данной строке нет цифр";
+    };
+    /* В примере возвращало строку только если был формат "$xxx", 
+    я немного усовершенствовал и она может вернуть цифры из любой строки */
+  </script>
+  <body></body>
+</html>

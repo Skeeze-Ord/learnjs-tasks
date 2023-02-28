@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array-methods</title>
+  </head>
+  <script>
+    // Task 1
+    const camelize = (str) => {
+      for (let i = 0; i < str.length - 1; i++) {
+        if (str[i] === "-") {
+          str = str.replace(str[i] + str[i + 1], str[i + 1].toUpperCase());
+        }
+      }
+      return str;
+    };
+
+    // Task 2
+    const filterRange = (str, a, b) => {
+      let filteredArray = [];
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] >= a && str[i] <= b) {
+          filteredArray.push(str[i]);
+        }
+      }
+      return filteredArray;
+    };
+
+    // Task 3
+    const filterRangeInPlace = (arr, a, b) => {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < a || arr[i] > b) {
+          arr.slice(i, 1);
+          i--;
+        }
+      }
+    };
+
+    // Task 4
+    const descendingSort = (arr) => {
+      arr.sort((a, b) => {
+        return b - a;
+      });
+      return arr;
+    };
+
+    // Task 5
+    const copySorted = (arr) => {
+      return arr.slice().sort();
+    };
+
+    // Task 6
+    const calculator = (str) => {
+      this.methods = {
+        "-": (a, b) => a - b,
+        "+": (a, b) => a + b,
+      };
+
+      this.calculate = function (str) {
+        const a = +str[0];
+        const b = +str[2];
+        const operator = str[1];
+
+        return operator === "+" ? a + b : a - b;
+      };
+
+      this.addMethod = function (name, func) {
+        this.methods[name] = func;
+      };
+    };
+
+    // Task 7
+    const names = (users) => {
+      return users.map((item) => item.name);
+    };
+
+    // Task 8
+    const sortByAge = (arr) => {
+      arr.sort((a, b) => (a.age > b.age ? 1 : -1));
+    };
+
+    // Task 9
+    const shuffle = (arr) => {
+      arr.sort(() => Math.random() - 0.5);
+    };
+
+    // Task 10
+    const getAverageAge = (users) => {
+      return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+    };
+
+    // Task 11
+    const unique = (arr) => {
+      let uniqueElements = [];
+
+      for (let str of arr) {
+        if (!uniqueElements.includes(str)) {
+          uniqueElements.push(str);
+        }
+      }
+      return uniqueElements;
+    };
+
+    // Task 12
+    const groupById = (arr) => {
+      return arr.reduce((obj, value) => {
+        obj[value.id] = value;
+        return obj;
+      });
+    };
+  </script>
+  <body></body>
+</html>

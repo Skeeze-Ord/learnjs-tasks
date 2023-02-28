@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object</title>
+  </head>
+  <script>
+    // Task 1
+    let user = {};
+    user.name = "John";
+    user.surname = "Smitch";
+    user.name = "Pete";
+    delete user.name;
+
+    // Task 2
+    const isEmpty = (obj) => {
+      let count = 0;
+      for (let properties in obj) {
+        count++;
+      }
+
+      if (count === 0) return true;
+      else return false;
+    };
+
+    // Task 3
+    const user = {
+      name: "John",
+    };
+
+    // это будет работать?
+    user.name = "Pete";
+    // Да
+
+    // Task 4
+    const totalSalary = (salaries) => {
+      let total = 0;
+      for (let key in salaries) {
+        total += salaries[key];
+      }
+      return total;
+    };
+
+    // Task 5
+    const multiplyNumeric = (obj) => {
+      for (let key in obj) {
+        if (Number.isInteger(obj[key]) === true) {
+          obj[key] = obj[key] * 2;
+        }
+      }
+      return obj;
+    };
+  </script>
+  <body></body>
+</html>

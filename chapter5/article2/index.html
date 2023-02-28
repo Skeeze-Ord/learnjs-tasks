@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>number</title>
+  </head>
+  <script>
+    // Task 1
+    const sum = () => {
+      const first = +prompt("First number");
+      const second = +prompt("Second number");
+      return first + second;
+    };
+
+    // Task 2
+    // alert((6.35).toFixed(2)); // 6.35
+
+    // Task 3
+    const readNumber = () => {
+      while (true) {
+        const num = prompt("Enter digit");
+        if (num == +num) {
+          alert(num);
+          break;
+        } else if (num === null) {
+          alert("Вы отменили действие");
+          break;
+        } else continue;
+      }
+    };
+
+    // Task 4
+    // let i = 0;
+    // while (i != 10) {
+    //   i += 0.2;
+    // }
+    // Цикл не завершится, т.к при прибавлении там не ровно 10 будет, а с цифрами после запятой
+
+    // Task 5
+    const random = (min, max) => {
+      return Math.random() * (max - min) + min;
+    };
+  </script>
+  <body></body>
+</html>
